@@ -26,6 +26,7 @@ def generate_password(min_length, numbers=True, special_characters=True):
         elif new_char in special:
             has_special = True
 
+        # Ensure the password meets criteria
         meets_criteria = True
         if numbers:
             meets_criteria = has_number
@@ -35,4 +36,9 @@ def generate_password(min_length, numbers=True, special_characters=True):
     return pwd
 
 
-generate_password(10)
+min_length = int(input("Enter the minimum length:"))
+has_number = input("Do you want to have numbers (y/n)? ").lower() == "y"
+has_special = input("Do you want to have special characters (y/n)? ").lower() == "y"
+# Generate a password of at least 10 characters
+pwd = generate_password(min_length, has_number, has_special)
+print(f"Generated Password:", pwd)
